@@ -63,6 +63,10 @@
    <link rel="stylesheet" href="main.css">
 
    <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
+<!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollTrigger.min.js"></script>
+
 </head>
 
   
@@ -1558,6 +1562,107 @@ cloneCards();
         });
     });
 </script>
+<script>
+  // Preloader animation
+  gsap.to(".preloader", {
+    duration: 1.5,
+    delay: 1,
+    opacity: 0,
+    ease: "power2.out",
+    onComplete: () => document.querySelector('.preloader').style.display = 'none'
+  });
+
+  // Navbar fade-in on load
+  gsap.from(".navbar", {
+    duration: 1.2,
+    y: -100,
+    opacity: 0,
+    ease: "power2.out"
+  });
+
+  // Home section animations
+  gsap.from(".home-thumb h1", {
+    duration: 1.5,
+    y: 50,
+    opacity: 0,
+    ease: "power2.out",
+    stagger: 0.3
+  });
+
+  gsap.from(".home-thumb a", {
+    duration: 1.5,
+    y: 50,
+    opacity: 0,
+    ease: "power2.out",
+    delay: 0.8
+  });
+
+  // About section animations
+  gsap.from(".about-text h2", {
+    scrollTrigger: ".about-section",
+    duration: 1,
+    x: -100,
+    opacity: 0,
+    ease: "power2.out"
+  });
+
+  gsap.from(".about-text p", {
+    scrollTrigger: ".about-section",
+    duration: 1,
+    x: -100,
+    opacity: 0,
+    ease: "power2.out",
+    delay: 0.3
+  });
+
+  gsap.from(".about-image img", {
+    scrollTrigger: ".about-section",
+    duration: 1.5,
+    x: 100,
+    opacity: 0,
+    ease: "power2.out"
+  });
+
+  // Services section animations
+  gsap.from(".service-container .card", {
+    scrollTrigger: ".service-container",
+    duration: 1.5,
+    y: 50,
+    opacity: 0,
+    ease: "power2.out",
+    stagger: 0.2
+  });
+
+  // Testimonials animation
+  gsap.from(".testimonial-card", {
+    scrollTrigger: ".testimonial-section",
+    duration: 1,
+    opacity: 0,
+    y: 30,
+    ease: "power2.out",
+    stagger: 0.2
+  });
+
+  // FAQ section animation
+  gsap.from(".accordion-item", {
+    scrollTrigger: ".faq",
+    duration: 1.5,
+    opacity: 0,
+    y: 30,
+    ease: "power2.out",
+    stagger: 0.3
+  });
+
+  // Cookie modal popup animation
+  gsap.from("#cookieModal", {
+    duration: 1,
+    y: 50,
+    opacity: 0,
+    ease: "power2.out"
+  });
+</script>
 </body>
 <script src="index.js"></script>
+
+
 </html>
